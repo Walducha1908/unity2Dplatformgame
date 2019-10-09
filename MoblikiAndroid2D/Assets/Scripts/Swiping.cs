@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Swiping : MonoBehaviour
 {
-    public static bool swipingDown;
+    public static bool swipingDown;                     // flagi sprawdzające czy jest swipe i jak jest to w jaką stronę
     public static bool swipingUp;
     public static bool swipingLeft;
     public static bool swipingRight;
@@ -71,6 +71,11 @@ public class Swiping : MonoBehaviour
         {
             swiping = false;
             eventSent = false;
+
+            swipingDown = false;
+            swipingUp = false;
+            swipingLeft = false;
+            swipingRight = false;
         }
     }
 }

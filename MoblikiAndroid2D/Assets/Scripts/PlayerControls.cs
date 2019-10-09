@@ -8,48 +8,49 @@ public class PlayerControls : MonoBehaviour
     public Rigidbody2D rb;
     public Camera mainCamera;
     public float jumpPower;
+    public float speed;
 
-    public bool hidden;
-    private int i = 0;
+    private bool hidden;
+    private int normalPosBlock; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        hidden = false;
+        hidden = false;                             // flaga określająca to czy gracz jest zmniejszony czy też nie
+        normalPosBlock = 0;                         // licznik opóźnienia zeby po zwiekszeniu postaci ona nie skakała od razu
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (player.transform.position.y < -7.67f)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            }
-        }
+        rb.velocity = new Vector2(speed, rb.velocity.y);
 
-        foreach (Touch touch in Input.touches)
-        {
-            if (player.transform.position.y < -7.67f)
-                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-        }
-
-        if (Swiping.swipingDown)
+        if (Swiping.swipingDown && !hidden)
         {
             player.transform.localScale /= 2f;
             hidden = true;
         }
-
-        if (hidden)
+        else if (!hidden && normalPosBlock == 0)
         {
-            i++;
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Ended && player.transform.position.y < -7.67f)
+                    rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            }
         }
-
-        if (i > 50)
+        else if (Swiping.swipingUp && hidden)
         {
-            i = 0;
             player.transform.localScale *= 2f;
             hidden = false;
+            normalPosBlock++;
+        }
+
+        if (normalPosBlock > 0 && normalPosBlock < 5)
+        {
+            normalPosBlock++;
+        }
+        else if (normalPosBlock == 5)
+        {
+            normalPosBlock = 0;
         }
     }
 }

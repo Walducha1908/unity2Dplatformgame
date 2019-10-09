@@ -7,20 +7,20 @@ public class cameraMove : MonoBehaviour
     public GameObject player;
 
     private Camera myCamera;
-    private Vector3 lastPlayerPosition;
+    private float lastPlayerPosition;
 
     void Start()
     {
         myCamera = this.GetComponent<Camera>();
-        lastPlayerPosition = player.transform.position;
+        lastPlayerPosition = player.transform.position.x;
     }
 
     void LateUpdate()
     {
 
-        Vector3 move = (lastPlayerPosition - player.transform.position);
-        Debug.Log(move);
-        myCamera.transform.position = myCamera.transform.position - move;
-        lastPlayerPosition = player.transform.position;
+        float move = lastPlayerPosition + 6.1f;
+        myCamera.transform.position = new Vector3(move, 
+                                                  myCamera.transform.position.y, myCamera.transform.position.z);
+        lastPlayerPosition = player.transform.position.x;
     }
 }

@@ -7,8 +7,8 @@ public class spawnRocks : MonoBehaviour
     public GameObject theRock;
     public GameObject player;
 
-    public float waitingForNextSpawn = 10;
-    public float theCountdown = 10;
+    public float waitingForNextSpawn;
+    public float theCountdown;
 
     public float xSpawn;
     public float yMin;
@@ -26,7 +26,9 @@ public class spawnRocks : MonoBehaviour
 
     void SpawnRocks()
     {
-        GameObject newRock = (GameObject)Instantiate
+        GameObject newSpikes = (GameObject)Instantiate
             (theRock, new Vector3(player.transform.position.x + xSpawn, Random.Range(yMin, yMax), 10), Quaternion.identity);
+
+        newSpikes.transform.Rotate(0, 0, 90);
     }
 }

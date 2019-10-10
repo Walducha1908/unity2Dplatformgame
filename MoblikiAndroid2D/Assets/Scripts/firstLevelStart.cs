@@ -30,6 +30,11 @@ public class firstLevelStart : MonoBehaviour
 
     public void whateverClicked()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
+    }
+
+    public void backScene()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: f5f839d7c5aaf0949893144a22c1d4a6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Kaushan Script
+  fontNames:
+  - Kaushan Script
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a52b9ac30d570a24082b417466a598a9, type: 3}
+  - {fileID: 12800000, guid: 5c04095cde8da914490351cc897f8733, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

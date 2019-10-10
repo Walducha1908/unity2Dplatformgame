@@ -8,9 +8,10 @@ public class scoreCounter : MonoBehaviour
     public float scorePerSecond;
     public static float points;
     public Text scoreLine;
+    public static float bonus = 1;
 
-    private float theCountdown = 0.5f;
-    private float waitingForNextPoints = 0.5f;
+    private float theCountdown = 0.2f;
+    private float waitingForNextPoints = 0.2f;
 
     void Update()
     {
@@ -18,13 +19,13 @@ public class scoreCounter : MonoBehaviour
         if (theCountdown <= 0)
         {
             theCountdown = waitingForNextPoints;
-            points += theCountdown*scorePerSecond;
+            points += theCountdown*scorePerSecond*bonus;
             updateScore();
         }
     }
 
     void updateScore()
     {
-        scoreLine.text = "ECTS: " + points;
+        scoreLine.text = "ECTS: " + points.ToString("0");
     }
 }

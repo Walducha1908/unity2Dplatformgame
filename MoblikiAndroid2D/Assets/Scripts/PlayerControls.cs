@@ -7,7 +7,7 @@ public class PlayerControls : MonoBehaviour
     public GameObject player;
     public Rigidbody2D rb;
     public Camera mainCamera;
-    public float jumpPower;
+    public static float jumpPower = 7;
     public float speed;
 
     private bool hidden;

@@ -11,9 +11,18 @@ public class hitRock : MonoBehaviour
     private static bool penaltyFlag;
     private static float theCountdown = 0.7f;
 
+    private static int numberOfHits = 0;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        numberOfHits++;
         Destroy(gameObject);
+
+        if (firstLevelStart.infBonus && numberOfHits <= 2)
+        {
+            return;
+        }
+
         scoreCounter.points -= currentPenaltyValue;
         
         penaltyLine.text = "-" + currentPenaltyValue;

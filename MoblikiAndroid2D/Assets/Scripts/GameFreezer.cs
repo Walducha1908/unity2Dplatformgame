@@ -7,8 +7,8 @@ public class GameFreezer : MonoBehaviour
 {
     GameObject[] pauseObjects;
     GameObject pauseGameButton;
+    Scene activeScene;
 
-    // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
@@ -16,6 +16,12 @@ public class GameFreezer : MonoBehaviour
         pauseGameButton = GameObject.FindGameObjectWithTag("HideOnPause");
         HidePauseObjects();
         ShowPauseGameButton();
+        activeScene = SceneManager.GetActiveScene();
+    }
+
+    private void Update()
+    {
+        //activeScene = SceneManager.GetActiveScene();
     }
 
     public void PauseGame()
@@ -23,6 +29,7 @@ public class GameFreezer : MonoBehaviour
         Time.timeScale = 0;
         ShowPauseObjects();
         HidePauseGameButton();
+        activeScene = SceneManager.GetActiveScene();
     }
 
     public void ResumeGame()
@@ -34,7 +41,7 @@ public class GameFreezer : MonoBehaviour
 
     public void RestartGame()
     {
-        // TODO: odwolywac sie do zmiennej identyfikujacej level
+        SceneManager.LoadScene(activeScene.name);
     }
 
     public void GoToMainMenu()

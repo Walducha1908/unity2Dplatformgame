@@ -14,6 +14,20 @@ public class spawnRocks : MonoBehaviour
     public float yMin;
     public float yMax;
 
+    private void Start()
+    {
+        if (scoreCounter.level == 2)
+        {
+            waitingForNextSpawn *= 0.88f;
+            theCountdown *= 0.88f;
+        }
+        else if (scoreCounter.level == 3)
+        {
+            waitingForNextSpawn *= 0.75f;
+            theCountdown *= 0.75f;
+        }
+    }
+
     void Update()
     {
         theCountdown -= Time.deltaTime;

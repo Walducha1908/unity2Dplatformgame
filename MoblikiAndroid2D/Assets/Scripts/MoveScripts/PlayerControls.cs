@@ -8,6 +8,7 @@ public class PlayerControls : MonoBehaviour
     public Rigidbody2D rb;
     public Camera mainCamera;
     public static float jumpPower = 7;
+    public static float reduceValue = 2;
     public float speed;
 
     private bool hidden;
@@ -26,7 +27,7 @@ public class PlayerControls : MonoBehaviour
 
         if (Swiping.swipingDown && !hidden)
         {
-            player.transform.localScale /= 2f;
+            player.transform.localScale /= reduceValue;
             hidden = true;
         }
         else if (!hidden && normalPosBlock == 0)
@@ -39,7 +40,7 @@ public class PlayerControls : MonoBehaviour
         }
         else if (Swiping.swipingUp && hidden)
         {
-            player.transform.localScale *= 2f;
+            player.transform.localScale *= reduceValue;
             hidden = false;
             normalPosBlock++;
         }

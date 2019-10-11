@@ -23,5 +23,16 @@ public class bonusScript : MonoBehaviour
             textBonus.text = "Fizyka - siła skoku + 10%";
             PlayerControls.jumpPower = 7.7f;
         }
+
+        if(secondInfLevelStart.ioadBonus)
+        {
+            textBonus.text = textBonus.text + "\nIOAD - 30% mniej \nstraconych ECTS-ów";
+            hitRock.programEnemyValue = 0.7f;
+        }
+        else if(secondInfLevelStart.gkimBonus)
+        {
+            textBonus.text = textBonus.text + "\nGKiM - +50% do zmniejszania";
+            PlayerControls.reduceValue = 2.5f;
+        }
     }
 }

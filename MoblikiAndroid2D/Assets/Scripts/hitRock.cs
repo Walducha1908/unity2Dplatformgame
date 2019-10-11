@@ -11,7 +11,8 @@ public class hitRock : MonoBehaviour
     private static bool penaltyFlag;
     private static float theCountdown = 0.7f;
 
-    private static int numberOfHits = 0;
+    public static float programEnemyValue = 1;
+    public static int numberOfHits = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,9 +24,9 @@ public class hitRock : MonoBehaviour
             return;
         }
 
-        scoreCounter.points -= currentPenaltyValue;
+        scoreCounter.points -= currentPenaltyValue*programEnemyValue;
         
-        penaltyLine.text = "-" + currentPenaltyValue;
+        penaltyLine.text = "-" + (currentPenaltyValue*programEnemyValue).ToString("0.0");
         penaltyFlag = true;
     }
 

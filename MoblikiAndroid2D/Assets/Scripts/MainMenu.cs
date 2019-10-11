@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
+        newGameReset.prepareNewGame();
         SceneManager.LoadScene("AskFirstLevel");
     }
 

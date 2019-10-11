@@ -10,7 +10,7 @@ public class endScore : MonoBehaviour
 
     private void Start()
     {
-        score.text = "Your score: " + scoreCounter.points;
+        score.text = "Twój wynik: " + scoreCounter.points.ToString("0.0") + ".";
     }
 
     public void mainMenu()

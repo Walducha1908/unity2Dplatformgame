@@ -9,6 +9,7 @@ public class scoreCounter : MonoBehaviour
     public static float points;
     public Text scoreLine;
     public static float bonus = 1;
+    public static int level = 1;
 
     private float theCountdown = 0.2f;
     private float waitingForNextPoints = 0.2f;

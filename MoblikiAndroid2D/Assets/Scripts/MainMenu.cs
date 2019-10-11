@@ -11,6 +11,16 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("AskFirstLevel");
     }
 
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void BestScore()
+    {
+        SceneManager.LoadScene("BestScoreMenu");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

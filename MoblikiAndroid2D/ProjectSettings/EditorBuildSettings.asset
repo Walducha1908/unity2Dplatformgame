@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AskSecondLevelInf.unity
     guid: b6434b8d39aa2484f9683dac0605ca53
+  - enabled: 1
+    path: Assets/Scenes/BestScoreMenu.unity
+    guid: db4bf49579d86e743876081e3177ad80
   m_configObjects: {}

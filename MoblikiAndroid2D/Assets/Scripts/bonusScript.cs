@@ -6,6 +6,9 @@ using UnityEngine;
 public class bonusScript : MonoBehaviour
 {
     public Text textBonus;
+    public Text levelText;
+    public GameObject bomb;
+    public GameObject shield;
 
     void Start()
     {
@@ -17,6 +20,7 @@ public class bonusScript : MonoBehaviour
         else if(firstLevelStart.infBonus)
         {
             textBonus.text = "Informatyka - pierwsze\n" + "dwa uderzenia bezpłatne";
+            shield.SetActive(true);
         }
         else if(firstLevelStart.physicsBonus)
         {
@@ -33,6 +37,25 @@ public class bonusScript : MonoBehaviour
         {
             textBonus.text = textBonus.text + "\nGKiM - +50% do zmniejszania";
             PlayerControls.reduceValue = 2.5f;
+        }
+
+        if (secondMathsLevelStart.mathsBonus)
+        {
+            textBonus.text = textBonus.text + "\nStosowana -\n+0.5pkt za każdy unik";
+        }
+        else if(secondMathsLevelStart.architectureBonus)
+        {
+            textBonus.text = textBonus.text + "\nArchitektura -\nWynaleziono bombę!";
+            bomb.SetActive(true);
+        }
+
+        if(scoreCounter.level == 1)
+        {
+            levelText.text = "Poziom 1 - matura";
+        }
+        else if(scoreCounter.level == 2)
+        {
+            levelText.text = "Poziom 2 - studia";
         }
     }
 }

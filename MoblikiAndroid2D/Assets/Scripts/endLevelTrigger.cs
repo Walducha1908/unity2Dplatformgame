@@ -7,6 +7,7 @@ using UnityEngine;
 public class endLevelTrigger : MonoBehaviour
 {
     public Text bonusText;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         scoreCounter.level++;
@@ -15,6 +16,10 @@ public class endLevelTrigger : MonoBehaviour
         {
             hitRock.numberOfHits = 0;
             SceneManager.LoadScene("AskSecondLevelInf");
+        }
+        else if(firstLevelStart.mathsBonus && scoreCounter.level == 2)
+        {
+            SceneManager.LoadScene("AskSecondLevelMath");
         }
         else
         {

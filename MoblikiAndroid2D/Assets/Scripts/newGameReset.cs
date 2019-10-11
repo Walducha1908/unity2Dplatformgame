@@ -15,6 +15,8 @@ public class newGameReset : MonoBehaviour
         firstLevelStart.physicsBonus = false;
         secondInfLevelStart.ioadBonus = false;
         secondInfLevelStart.gkimBonus = false;
+        secondMathsLevelStart.mathsBonus = false;
+        secondMathsLevelStart.architectureBonus = false;
         PlayerControls.jumpPower = 7;
         PlayerControls.reduceValue = 2;
         hitRock.numberOfHits = 0;

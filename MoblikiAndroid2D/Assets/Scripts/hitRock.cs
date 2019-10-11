@@ -7,12 +7,20 @@ public class hitRock : MonoBehaviour
 {
     public float currentPenaltyValue;
     public Text penaltyLine;
+    public Text awardLine;
+    public GameObject player;
 
     private static bool penaltyFlag;
     private static float theCountdown = 0.7f;
 
+    private static bool awardFlag;
+    private static float theCountdownAward = 0.7f;
+
     public static float programEnemyValue = 1;
     public static int numberOfHits = 0;
+    public GameObject shield;
+
+    private bool awardCollected = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,8 +40,30 @@ public class hitRock : MonoBehaviour
 
     private void Update()
     {
-        if (this.transform.position.x < -13f)
+        if (this.transform.position.x < player.transform.position.x - 10)
             Destroy(gameObject);
+
+        if (this.transform.position.x < player.transform.position.x)
+        {
+            if (secondMathsLevelStart.mathsBonus && !awardCollected)
+            {
+                scoreCounter.points += 0.5f;
+                awardLine.text = "+0,5";
+                awardFlag = true;
+                awardCollected = true;
+            }
+        }
+
+        if (awardFlag && theCountdownAward >= 0)
+        {
+            theCountdownAward -= Time.deltaTime;
+        }
+        else if (awardFlag && theCountdownAward <= 0)
+        {
+            awardFlag = false;
+            awardLine.text = "";
+            theCountdownAward = 0.7f;
+        }
 
         if (penaltyFlag && theCountdown >= 0)
         {
@@ -46,5 +76,9 @@ public class hitRock : MonoBehaviour
             theCountdown = 0.7f;
         }
 
+        if (numberOfHits == 2)
+        {
+            shield.SetActive(false);
+        }
     }
 }

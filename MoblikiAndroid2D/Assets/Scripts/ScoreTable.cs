@@ -1,32 +1,10 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
-public class BestScoreMenu : MonoBehaviour
+public class ScoreTable : MonoBehaviour
 {
-    /*
-    public static string playernamestr; //string do ktorego przekazywana jest imie po wpisaniu go w okienku
-
-    public Text score;
-    
-    ScoreTable st;
-
-    public void Start()
-    {
-        ShowBestScore();
-    }
-
-    public void ShowBestScore()
-    {
-       st = new ScoreTable();
-        st.Create();
-        // score.text = playernamestr +": " + scoreCounter.points; // TODO: uwzgledniac najlepszy wynik, a nie jakikolwiek
-    }
-
-    */
-    public static string playernamestr;
     private Transform entries;
     private Transform entry;
     private List<Transform> scoreEntriesTransforms;
@@ -37,13 +15,10 @@ public class BestScoreMenu : MonoBehaviour
         entry = entries.Find("Entry");
         entry.gameObject.SetActive(false);
 
-        /*        string jsonStr = PlayerPrefs.GetString("ScoreTable");
-                Scores scores = JsonUtility.FromJson<Scores>(jsonStr);*/
+        AddScoreEntry(scoreCounter.points, BestScoreMenu.playernamestr);
 
-        ScoreEntry scoreEntry = new ScoreEntry { score = scoreCounter.points, playerName = playernamestr };
-        Scores scores = new Scores();
-        scores.scoreEntries = new List<ScoreEntry>();
-        scores.scoreEntries.Add(scoreEntry);
+        string jsonStr = PlayerPrefs.GetString("ScoreTable");
+        Scores scores = JsonUtility.FromJson<Scores>(jsonStr);
 
         for (int i = 0; i < scores.scoreEntries.Count; i++)
         {
@@ -59,17 +34,16 @@ public class BestScoreMenu : MonoBehaviour
         }
 
         scoreEntriesTransforms = new List<Transform>();
-
-        foreach (ScoreEntry se in scores.scoreEntries)
-        {
-            CreateScoreEntryTransform(se, entries, scoreEntriesTransforms);
+        foreach (ScoreEntry scoreEntry in scores.scoreEntries)
+        { 
+            CreateScoreEntryTransform(scoreEntry, entries, scoreEntriesTransforms);
         }
 
-        /*        Scores scores = new Scores { scoreEntries = scoreEntries };
-                string json = JsonUtility.ToJson(scores);
-                PlayerPrefs.SetString("ScoreTable", json);
-                PlayerPrefs.Save();
-                Debug.Log(PlayerPrefs.GetString("ScoreTable"));*/
+*//*        Scores scores = new Scores { scoreEntries = scoreEntries };
+        string json = JsonUtility.ToJson(scores);
+        PlayerPrefs.SetString("ScoreTable", json);
+        PlayerPrefs.Save();
+        Debug.Log(PlayerPrefs.GetString("ScoreTable"));*//*
     }
 
     private void CreateScoreEntryTransform(ScoreEntry scoreEntry, Transform entries, List<Transform> scoreEntriesTransforms)
@@ -97,10 +71,10 @@ public class BestScoreMenu : MonoBehaviour
     private void AddScoreEntry(float score, string playerName)
     {
         ScoreEntry scoreEntry = new ScoreEntry { score = score, playerName = playerName };
-
+        
         string jsonStr = PlayerPrefs.GetString("ScoreTable");
         Scores scores = JsonUtility.FromJson<Scores>(jsonStr);
-
+        
         scores.scoreEntries.Add(scoreEntry);
     }
 
@@ -115,4 +89,4 @@ public class BestScoreMenu : MonoBehaviour
         public float score;
         public string playerName;
     }
-}
+}*/

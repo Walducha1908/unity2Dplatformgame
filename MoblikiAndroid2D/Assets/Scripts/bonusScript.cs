@@ -7,11 +7,16 @@ public class bonusScript : MonoBehaviour
 {
     public Text textBonus;
     public Text levelText;
+    public Text PlayerName;
     public GameObject bomb;
     public GameObject shield;
 
+    public static string playernamestr;
+
     void Start()
     {
+        PlayerName.text = "Gracz:" + playernamestr;
+
         if (firstLevelStart.mathsBonus)
         {
             scoreCounter.bonus = 1.2f;

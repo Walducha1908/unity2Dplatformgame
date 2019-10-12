@@ -21,5 +21,6 @@ public class newGameReset : MonoBehaviour
         PlayerControls.reduceValue = 2;
         hitRock.numberOfHits = 0;
         hitRock.programEnemyValue = 1;
+    
     }
 }

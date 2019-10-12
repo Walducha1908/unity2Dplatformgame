@@ -6,32 +6,10 @@ using System.IO;
 
 public class BestScoreMenu : MonoBehaviour
 {
-    /*
-    public static string playernamestr; //string do ktorego przekazywana jest imie po wpisaniu go w okienku
-
-    public Text score;
-    
-    ScoreTable st;
-
-    public void Start()
-    {
-        ShowBestScore();
-    }
-
-    public void ShowBestScore()
-    {
-       st = new ScoreTable();
-        st.Create();
-        // score.text = playernamestr +": " + scoreCounter.points; // TODO: uwzgledniac najlepszy wynik, a nie jakikolwiek
-    }
-
-    */
     public static string playernamestr;
     private Transform entries;
     private Transform entry;
     private List<Transform> scoreEntriesTransforms;
-
-    // private string gameDataFileName = "data.json";
 
     private void Start()
     {
@@ -92,7 +70,8 @@ public class BestScoreMenu : MonoBehaviour
         {
             string jsonStr = PlayerPrefs.GetString("ScoreTable");
             scores = JsonUtility.FromJson<Scores>(jsonStr);
-        } else
+        }
+        else
         {
             scores = new Scores();
         }

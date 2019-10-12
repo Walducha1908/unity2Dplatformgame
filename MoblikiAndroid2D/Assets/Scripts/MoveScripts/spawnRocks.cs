@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class spawnRocks : MonoBehaviour
@@ -7,8 +8,12 @@ public class spawnRocks : MonoBehaviour
     public GameObject[] theRock;
     public GameObject player;
 
+    public Text mechaText;
+    public Button mechaButton;
+
     public float waitingForNextSpawn;
     public float theCountdown;
+    private float theCountdownMechaBonus = 10;
 
     public float xSpawn;
     public float yMin;
@@ -26,15 +31,35 @@ public class spawnRocks : MonoBehaviour
             waitingForNextSpawn *= 0.75f;
             theCountdown *= 0.75f;
         }
+
+        if (secondPhysicsLevelStart.mechaBonus)
+        {
+            waitingForNextSpawn *= 1.15f;
+            mechaButton.gameObject.SetActive(true);
+        }
     }
 
     void Update()
     {
         theCountdown -= Time.deltaTime;
+        if (theCountdownMechaBonus <= 10)
+            theCountdownMechaBonus -= Time.deltaTime; 
+
         if (theCountdown <= 0)
         {
             SpawnRocks();
             theCountdown = waitingForNextSpawn;
+        }
+        if (theCountdownMechaBonus <= 0)
+        {
+            waitingForNextSpawn *= 0.87f;
+            mechaButton.gameObject.SetActive(false);
+            theCountdownMechaBonus = 11;
+        }
+
+        if (secondPhysicsLevelStart.mechaBonus && theCountdownMechaBonus > 0)
+        {
+            mechaText.text = theCountdownMechaBonus.ToString("0") + "s";
         }
     }
 

@@ -12,7 +12,8 @@ public class PlayerControls : MonoBehaviour
     public float speed;
 
     private bool hidden;
-    private int normalPosBlock; 
+    private int normalPosBlock;
+    private int jumpNumber = 0;
 
     void Start()
     {
@@ -34,9 +35,33 @@ public class PlayerControls : MonoBehaviour
         {
             foreach (Touch touch in Input.touches)
             {
-                if (touch.phase == TouchPhase.Ended && player.transform.position.y < -7.67f)
-                    rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                if (touch.phase == TouchPhase.Ended) {
+                    if (player.transform.position.y < -7.67f)
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                        jumpNumber = 1;
+                    }
+                    else if (secondPhysicsLevelStart.physicsBonus && jumpNumber == 1)
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                        jumpNumber = 0;
+                    }
+                }
             }
+
+            /*if (Input.GetMouseButtonDown(0))
+            {
+                if (player.transform.position.y < -7.67f)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                    jumpNumber = 1;
+                }
+                else if (secondPhysicsLevelStart.physicsBonus && jumpNumber == 1)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                    jumpNumber = 0;
+                }
+            }*/
         }
         else if (Swiping.swipingUp && hidden)
         {

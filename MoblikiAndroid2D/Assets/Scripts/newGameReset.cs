@@ -10,6 +10,7 @@ public class newGameReset : MonoBehaviour
         scoreCounter.points = 0;
         scoreCounter.bonus = 1;
         scoreCounter.level = 1;
+
         firstLevelStart.mathsBonus = false;
         firstLevelStart.infBonus = false;
         firstLevelStart.physicsBonus = false;
@@ -17,8 +18,12 @@ public class newGameReset : MonoBehaviour
         secondInfLevelStart.gkimBonus = false;
         secondMathsLevelStart.mathsBonus = false;
         secondMathsLevelStart.architectureBonus = false;
+        secondPhysicsLevelStart.physicsBonus = false;
+        secondPhysicsLevelStart.mechaBonus = false;
+
         PlayerControls.jumpPower = 7;
         PlayerControls.reduceValue = 2;
+
         hitRock.numberOfHits = 0;
         hitRock.programEnemyValue = 1;
     }

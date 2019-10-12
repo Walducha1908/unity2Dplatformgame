@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+using System.IO;
 
 public class BestScoreMenu : MonoBehaviour
 {
@@ -31,19 +31,15 @@ public class BestScoreMenu : MonoBehaviour
     private Transform entry;
     private List<Transform> scoreEntriesTransforms;
 
+    // private string gameDataFileName = "data.json";
+
     private void Start()
     {
         entries = transform.Find("Entries");
         entry = entries.Find("Entry");
         entry.gameObject.SetActive(false);
 
-        /*        string jsonStr = PlayerPrefs.GetString("ScoreTable");
-                Scores scores = JsonUtility.FromJson<Scores>(jsonStr);*/
-
-        ScoreEntry scoreEntry = new ScoreEntry { score = scoreCounter.points, playerName = playernamestr };
-        Scores scores = new Scores();
-        scores.scoreEntries = new List<ScoreEntry>();
-        scores.scoreEntries.Add(scoreEntry);
+        Scores scores = AddScoreEntry(scoreCounter.points, playernamestr);
 
         for (int i = 0; i < scores.scoreEntries.Count; i++)
         {
@@ -64,12 +60,6 @@ public class BestScoreMenu : MonoBehaviour
         {
             CreateScoreEntryTransform(se, entries, scoreEntriesTransforms);
         }
-
-        /*        Scores scores = new Scores { scoreEntries = scoreEntries };
-                string json = JsonUtility.ToJson(scores);
-                PlayerPrefs.SetString("ScoreTable", json);
-                PlayerPrefs.Save();
-                Debug.Log(PlayerPrefs.GetString("ScoreTable"));*/
     }
 
     private void CreateScoreEntryTransform(ScoreEntry scoreEntry, Transform entries, List<Transform> scoreEntriesTransforms)
@@ -94,19 +84,31 @@ public class BestScoreMenu : MonoBehaviour
         scoreEntriesTransforms.Add(entryTransform);
     }
 
-    private void AddScoreEntry(float score, string playerName)
+    private Scores AddScoreEntry(float score, string playerName)
     {
         ScoreEntry scoreEntry = new ScoreEntry { score = score, playerName = playerName };
-
-        string jsonStr = PlayerPrefs.GetString("ScoreTable");
-        Scores scores = JsonUtility.FromJson<Scores>(jsonStr);
-
+        Scores scores;
+        if (PlayerPrefs.HasKey("ScoreTable"))
+        {
+            string jsonStr = PlayerPrefs.GetString("ScoreTable");
+            scores = JsonUtility.FromJson<Scores>(jsonStr);
+        } else
+        {
+            scores = new Scores();
+        }
         scores.scoreEntries.Add(scoreEntry);
+
+        string json = JsonUtility.ToJson(scores);
+        PlayerPrefs.SetString("ScoreTable", json);
+        PlayerPrefs.Save();
+
+        return scores;
     }
 
+    [System.Serializable]
     private class Scores
     {
-        public List<ScoreEntry> scoreEntries;
+        public List<ScoreEntry> scoreEntries = new List<ScoreEntry>();
     }
 
     [System.Serializable]

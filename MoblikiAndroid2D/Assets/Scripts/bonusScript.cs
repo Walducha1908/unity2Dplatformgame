@@ -54,6 +54,15 @@ public class bonusScript : MonoBehaviour
             bomb.SetActive(true);
         }
 
+        if (secondPhysicsLevelStart.physicsBonus)
+        {
+            textBonus.text = textBonus.text + "\nTechniczna -\nPodwójny wyskok!";
+        }
+        else if(secondPhysicsLevelStart.mechaBonus)
+        {
+            textBonus.text = textBonus.text + "\nMechanika - 10s \nspowolnienia przeciwników!";
+        }
+
         if(scoreCounter.level == 1)
         {
             levelText.text = "Poziom 1 - matura";

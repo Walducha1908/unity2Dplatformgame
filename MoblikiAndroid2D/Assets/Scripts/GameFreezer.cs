@@ -41,7 +41,10 @@ public class GameFreezer : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(activeScene.name);
+        SceneManager.LoadScene("AskFirstLevel");  //to tak nie działa, trzeba jeszcze zmienne przygotować,
+                                                   //także dodaje linjke z kodem, która czyści dane gry, 
+        newGameReset.prepareNewGame();             //restart rozumiem jako restart całej gry anie tylko lvl
+                                                   //inaczej będzie ciężko to zakodować
     }
 
     public void GoToMainMenu()

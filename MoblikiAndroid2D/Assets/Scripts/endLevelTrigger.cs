@@ -21,6 +21,10 @@ public class endLevelTrigger : MonoBehaviour
         {
             SceneManager.LoadScene("AskSecondLevelMath");
         }
+        else if(firstLevelStart.physicsBonus && scoreCounter.level == 2)
+        {
+            SceneManager.LoadScene("AskSecondLevelPhysics");
+        }
         else
         {
             bonusText.text = "";

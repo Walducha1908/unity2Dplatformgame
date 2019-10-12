@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class BestScoreMenu : MonoBehaviour
 {
+    public static bool isLoadedFromMainMenuScene;
+    public static bool isLoadedFromEndScreen;
     public static string playernamestr;
     private Transform entries;
     private Transform entry;
@@ -34,10 +37,18 @@ public class BestScoreMenu : MonoBehaviour
 
         scoreEntriesTransforms = new List<Transform>();
 
-        foreach (ScoreEntry se in scores.scoreEntries)
+        for (int i = 0; i < 5; i++)
         {
-            CreateScoreEntryTransform(se, entries, scoreEntriesTransforms);
+            ScoreEntry scoreEntry = scores.scoreEntries[i];
+            CreateScoreEntryTransform(scoreEntry, entries, scoreEntriesTransforms);
         }
+
+        if (isLoadedFromEndScreen)
+        {
+            isLoadedFromEndScreen = false;
+            SceneManager.LoadScene("MainMenu");
+        }
+
     }
 
     private void CreateScoreEntryTransform(ScoreEntry scoreEntry, Transform entries, List<Transform> scoreEntriesTransforms)
@@ -75,7 +86,12 @@ public class BestScoreMenu : MonoBehaviour
         {
             scores = new Scores();
         }
-        scores.scoreEntries.Add(scoreEntry);
+
+        if (!isLoadedFromMainMenuScene)
+        {
+            scores.scoreEntries.Add(scoreEntry);
+        }
+        isLoadedFromMainMenuScene = false;
 
         string json = JsonUtility.ToJson(scores);
         PlayerPrefs.SetString("ScoreTable", json);

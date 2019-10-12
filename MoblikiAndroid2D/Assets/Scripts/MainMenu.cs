@@ -29,6 +29,14 @@ public class MainMenu : MonoBehaviour
 
     public void BestScore()
     {
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            BestScoreMenu.isLoadedFromMainMenuScene = true;
+        }
+        else
+        {
+            BestScoreMenu.isLoadedFromMainMenuScene = false;
+        }
         SceneManager.LoadScene("BestScoreMenu");
     }
 

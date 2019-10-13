@@ -49,7 +49,7 @@ public class PlayerControls : MonoBehaviour
                 }
             }
 
-            if (Input.GetMouseButtonDown(0))
+            /*if (Input.GetMouseButtonDown(0))
             {
                 if (player.transform.position.y < -7.67f)
                 {
@@ -61,7 +61,7 @@ public class PlayerControls : MonoBehaviour
                     rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                     jumpNumber = 0;
                 }
-            }
+            }*/
         }
         else if (Swiping.swipingUp && hidden)
         {

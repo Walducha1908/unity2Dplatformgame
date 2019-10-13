@@ -53,7 +53,7 @@ public class BestScoreMenu : MonoBehaviour
 
     private void CreateScoreEntryTransform(ScoreEntry scoreEntry, Transform entries, List<Transform> scoreEntriesTransforms)
     {
-        float heightBetweenEntries = 50f;
+        float heightBetweenEntries = 70f;
         Transform entryTransform = Instantiate(entry, entries);
         RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
         entryRectTransform.anchoredPosition = new Vector2(0, -heightBetweenEntries * scoreEntriesTransforms.Count);

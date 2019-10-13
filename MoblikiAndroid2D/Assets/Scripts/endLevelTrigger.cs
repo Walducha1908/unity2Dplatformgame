@@ -27,6 +27,7 @@ public class endLevelTrigger : MonoBehaviour
         }
         else
         {
+            scoreCounter.points = Mathf.Round(scoreCounter.points * 100f) / 100f;
             bonusText.text = "";
             SceneManager.LoadScene("endScreen");
         }

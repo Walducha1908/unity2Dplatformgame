@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AskSecondLevelPhysics.unity
     guid: bedd5e55ebcc2e64c8acb7adffadae8d
+  - enabled: 1
+    path: Assets/Scenes/AskThirdLevel.unity
+    guid: 16b98ac48d7d15144afda29d569fd721
   m_configObjects: {}

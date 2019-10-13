@@ -11,6 +11,7 @@ public class endLevelTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         scoreCounter.level++;
+        hitRock.numberOfHits = 0;
 
         if (firstLevelStart.infBonus && scoreCounter.level == 2)
         {
@@ -25,11 +26,9 @@ public class endLevelTrigger : MonoBehaviour
         {
             SceneManager.LoadScene("AskSecondLevelPhysics");
         }
-        else
+        else if(scoreCounter.level == 3)
         {
-            scoreCounter.points = Mathf.Round(scoreCounter.points * 100f) / 100f;
-            bonusText.text = "";
-            SceneManager.LoadScene("endScreen");
+            SceneManager.LoadScene("AskThirdLevel");
         }
     }
 }

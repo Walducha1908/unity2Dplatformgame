@@ -63,6 +63,15 @@ public class bonusScript : MonoBehaviour
             textBonus.text = textBonus.text + "\nMechanika - 10s \nspowolnienia przeciwników!";
         }
 
+        if (thirdLevelStart.corpoBonus)
+        {
+            textBonus.text = textBonus.text + "\nPraca w firmie -\n+50pkt co 10s";
+        }
+        else if(thirdLevelStart.scienceBonus)
+        {
+            textBonus.text = textBonus.text + "\nPraca naukowa - +10, 20, 30pkt narastająco co 10s";
+        }
+
         if(scoreCounter.level == 1)
         {
             levelText.text = "Poziom 1 - matura";
@@ -70,6 +79,10 @@ public class bonusScript : MonoBehaviour
         else if(scoreCounter.level == 2)
         {
             levelText.text = "Poziom 2 - studia";
+        }
+        else if(scoreCounter.level == 3)
+        {
+            levelText.text = "Poziom 3 - praca";
         }
     }
 }

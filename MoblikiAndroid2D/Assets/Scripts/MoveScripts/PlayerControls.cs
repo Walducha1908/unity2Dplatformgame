@@ -24,7 +24,8 @@ public class PlayerControls : MonoBehaviour
 
     void Update()
     {
-        rb.velocity = new Vector2(speed, rb.velocity.y);
+        if (scoreCounter.level <= 2)
+            rb.velocity = new Vector2(speed, rb.velocity.y);
 
         if (Swiping.swipingDown && !hidden)
         {

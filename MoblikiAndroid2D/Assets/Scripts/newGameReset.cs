@@ -14,12 +14,16 @@ public class newGameReset : MonoBehaviour
         firstLevelStart.mathsBonus = false;
         firstLevelStart.infBonus = false;
         firstLevelStart.physicsBonus = false;
+
         secondInfLevelStart.ioadBonus = false;
         secondInfLevelStart.gkimBonus = false;
         secondMathsLevelStart.mathsBonus = false;
         secondMathsLevelStart.architectureBonus = false;
         secondPhysicsLevelStart.physicsBonus = false;
         secondPhysicsLevelStart.mechaBonus = false;
+
+        thirdLevelStart.corpoBonus = false;
+        thirdLevelStart.scienceBonus = false;
 
         PlayerControls.jumpPower = 7;
         PlayerControls.reduceValue = 2;

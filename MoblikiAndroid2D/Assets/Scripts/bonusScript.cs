@@ -10,8 +10,15 @@ public class bonusScript : MonoBehaviour
     public Text PlayerName;
     public GameObject bomb;
     public GameObject shield;
+    public Text thirdLevelAward;
 
     public static string playernamestr;
+
+    private float waitingForNextAward = 10;
+    private float theCountdown = 10;
+    private float theCountdownToClose = 1;
+    private float bonusScienceVal = 10;
+    private bool awardTextIsShown = false;
 
     void Start()
     {
@@ -24,7 +31,7 @@ public class bonusScript : MonoBehaviour
         }
         else if(firstLevelStart.infBonus)
         {
-            textBonus.text = "Informatyka - pierwsze\n" + "dwa uderzenia bezpłatne";
+            textBonus.text = "Informatyka - pierwsze" + " dwa uderzenia bezpłatne";
             shield.SetActive(true);
         }
         else if(firstLevelStart.physicsBonus)
@@ -35,7 +42,7 @@ public class bonusScript : MonoBehaviour
 
         if(secondInfLevelStart.ioadBonus)
         {
-            textBonus.text = textBonus.text + "\nIOAD - 30% mniej \nstraconych ECTS-ów";
+            textBonus.text = textBonus.text + "\nIOAD - 30% mniej straconych ECTS-ów";
             hitRock.programEnemyValue = 0.7f;
         }
         else if(secondInfLevelStart.gkimBonus)
@@ -46,26 +53,26 @@ public class bonusScript : MonoBehaviour
 
         if (secondMathsLevelStart.mathsBonus)
         {
-            textBonus.text = textBonus.text + "\nStosowana -\n+0.5pkt za każdy unik";
+            textBonus.text = textBonus.text + "\nStosowana - +0.5pkt za każdy unik";
         }
         else if(secondMathsLevelStart.architectureBonus)
         {
-            textBonus.text = textBonus.text + "\nArchitektura -\nWynaleziono bombę!";
+            textBonus.text = textBonus.text + "\nArchitektura - Wynaleziono bombę!";
             bomb.SetActive(true);
         }
 
         if (secondPhysicsLevelStart.physicsBonus)
         {
-            textBonus.text = textBonus.text + "\nTechniczna -\nPodwójny wyskok!";
+            textBonus.text = textBonus.text + "\nTechniczna - Podwójny wyskok!";
         }
         else if(secondPhysicsLevelStart.mechaBonus)
         {
-            textBonus.text = textBonus.text + "\nMechanika - 10s \nspowolnienia przeciwników!";
+            textBonus.text = textBonus.text + "\nMechanika - 10s spowolnienia przeciwników!";
         }
 
         if (thirdLevelStart.corpoBonus)
         {
-            textBonus.text = textBonus.text + "\nPraca w firmie -\n+50pkt co 10s";
+            textBonus.text = textBonus.text + "\nPraca w firmie - +30pkt co 10s";
         }
         else if(thirdLevelStart.scienceBonus)
         {
@@ -83,6 +90,40 @@ public class bonusScript : MonoBehaviour
         else if(scoreCounter.level == 3)
         {
             levelText.text = "Poziom 3 - praca";
+        }
+    }
+
+    private void Update()
+    {
+        theCountdown -= Time.deltaTime;
+        if (theCountdown <= 0 && scoreCounter.level == 3)
+        {
+            theCountdown = waitingForNextAward;
+            if (thirdLevelStart.corpoBonus)
+            {
+                scoreCounter.points += 30;
+                thirdLevelAward.text = "+30";
+                awardTextIsShown = true;
+            }
+            else if(thirdLevelStart.scienceBonus)
+            {
+                scoreCounter.points += bonusScienceVal;
+                thirdLevelAward.text = "+" + bonusScienceVal.ToString("0");
+                bonusScienceVal += 10;
+                awardTextIsShown = true;
+            }
+        }
+
+        if(awardTextIsShown)
+        {
+            theCountdownToClose -= Time.deltaTime;
+        }
+
+        if(theCountdownToClose <= 0)
+        {
+            thirdLevelAward.text = "";
+            theCountdownToClose = 1;
+            awardTextIsShown = false;
         }
     }
 }

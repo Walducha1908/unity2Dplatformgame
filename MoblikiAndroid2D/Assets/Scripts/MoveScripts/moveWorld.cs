@@ -6,6 +6,7 @@ public class moveWorld : MonoBehaviour
 {
     void Update()
     {
-        this.transform.position = new Vector2(this.transform.position.x + 0.1f, this.transform.position.y);
+        if (!GameFreezer.isPaused)
+            this.transform.position = new Vector2(this.transform.position.x + 0.1f, this.transform.position.y);
     }
 }

@@ -9,6 +9,8 @@ public class GameFreezer : MonoBehaviour
     GameObject pauseGameButton;
     Scene activeScene;
 
+    public static bool isPaused;
+
     void Start()
     {
         Time.timeScale = 1;
@@ -17,6 +19,7 @@ public class GameFreezer : MonoBehaviour
         HidePauseObjects();
         ShowPauseGameButton();
         activeScene = SceneManager.GetActiveScene();
+        isPaused = false;
     }
 
     private void Update()
@@ -30,6 +33,7 @@ public class GameFreezer : MonoBehaviour
         ShowPauseObjects();
         HidePauseGameButton();
         activeScene = SceneManager.GetActiveScene();
+        isPaused = true;
     }
 
     public void ResumeGame()
@@ -37,6 +41,7 @@ public class GameFreezer : MonoBehaviour
         Time.timeScale = 1;
         HidePauseObjects();
         ShowPauseGameButton();
+        isPaused = false;
     }
 
     public void RestartGame()

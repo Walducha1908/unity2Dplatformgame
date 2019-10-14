@@ -46,7 +46,7 @@ public class BestScoreMenu : MonoBehaviour
         if (isLoadedFromEndScreen)
         {
             isLoadedFromEndScreen = false;
-            SceneManager.LoadScene("MainMenu");
+            //SceneManager.LoadScene("MainMenu");
         }
 
     }

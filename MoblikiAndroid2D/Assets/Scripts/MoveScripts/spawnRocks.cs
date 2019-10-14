@@ -48,6 +48,10 @@ public class spawnRocks : MonoBehaviour
         if (theCountdown <= 0)
         {
             SpawnRocks();
+            if (scoreCounter.level == 3)
+            {
+                waitingForNextSpawn = 1.48f * Random.Range(0.82f, 1.18f);
+            }
             theCountdown = waitingForNextSpawn;
         }
         if (theCountdownMechaBonus <= 0)

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
@@ -97,6 +98,7 @@ public class BestScoreMenu : MonoBehaviour
         PlayerPrefs.SetString("ScoreTable", json);
         PlayerPrefs.Save();
 
+        //putJSONbin(json);
         return scores;
     }
 
@@ -112,4 +114,18 @@ public class BestScoreMenu : MonoBehaviour
         public float score;
         public string playerName;
     }
+
+    /*void putJSONbin(string json) 
+    {
+        var httpWebRequest = (HttpWebRequest)WebRequest.Create();
+        Debug.Log("jestem tu");
+        httpWebRequest.ContentType = "application/json";
+        httpWebRequest.
+        httpWebRequest.Method = "PUT";
+
+        using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+        {
+            streamWriter.Write(json);
+        }
+    }*/
 }

@@ -47,8 +47,8 @@ public class hitRock : MonoBehaviour
         {
             if (secondMathsLevelStart.mathsBonus && !awardCollected)
             {
-                scoreCounter.points += 0.5f;
-                awardLine.text = "+0,5";
+                scoreCounter.points += 3f;
+                awardLine.text = "+3";
                 awardFlag = true;
                 awardCollected = true;
             }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
@@ -11,15 +12,26 @@ public class PlayerControls : MonoBehaviour
     public static float reduceValue = 2;
     public float speed;
 
+    public Button doubleJumpButton;
+    public Text doubleJumpBonusLine;
+
     private bool hidden;
     private int normalPosBlock;
     private int jumpNumber = 0;
+    private int doubleJumpNumber = 5;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         hidden = false;                             // flaga określająca to czy gracz jest zmniejszony czy też nie
         normalPosBlock = 0;                         // licznik opóźnienia zeby po zwiekszeniu postaci ona nie skakała od razu
+
+        if (scoreCounter.level >= 2 && secondPhysicsLevelStart.physicsBonus)
+        {
+            doubleJumpButton.gameObject.SetActive(true);
+            doubleJumpBonusLine.text = doubleJumpNumber.ToString();
+            doubleJumpBonusLine.gameObject.SetActive(true);
+        }
     }
 
     void Update()
@@ -42,10 +54,12 @@ public class PlayerControls : MonoBehaviour
                         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                         jumpNumber = 1;
                     }
-                    else if (secondPhysicsLevelStart.physicsBonus && jumpNumber == 1)
+                    else if (secondPhysicsLevelStart.physicsBonus && jumpNumber == 1 && doubleJumpNumber > 0)
                     {
                         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                         jumpNumber = 0;
+                        doubleJumpNumber--;
+                        doubleJumpBonusLine.text = doubleJumpNumber.ToString();
                     }
                 }
             }

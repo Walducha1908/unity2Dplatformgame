@@ -28,8 +28,8 @@ public class spawnRocks : MonoBehaviour
         }
         else if (scoreCounter.level == 3)
         {
-            waitingForNextSpawn *= 0.75f;
-            theCountdown *= 0.75f;
+            waitingForNextSpawn *= 0.77f;
+            theCountdown *= 0.77f;
         }
 
         if (secondPhysicsLevelStart.mechaBonus)

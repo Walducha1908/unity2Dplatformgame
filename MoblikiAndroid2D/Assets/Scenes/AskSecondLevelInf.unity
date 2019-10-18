@@ -636,8 +636,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -522.6}
-  m_SizeDelta: {x: 0, y: -347}
+  m_AnchoredPosition: {x: 4.2, y: -522.6}
+  m_SizeDelta: {x: 114, y: -347}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &958252541
 MonoBehaviour:
@@ -659,7 +659,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5c04095cde8da914490351cc897f8733, type: 3}
-    m_FontSize: 40
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -671,7 +671,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Analizuj dane szybciej! Przeprogramuj przeciwnik\xF3w tak aby kradli o
-    30% mniej ECTS-\xF3w!"
+    50% mniej ECTS-\xF3w!"
 --- !u!222 &958252542
 CanvasRenderer:
   m_ObjectHideFlags: 0

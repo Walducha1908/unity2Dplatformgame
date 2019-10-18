@@ -438,7 +438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.025005, y: -314.7}
+  m_AnchoredPosition: {x: -0.024993896, y: -314.70004}
   m_SizeDelta: {x: -0, y: -415.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676477598
@@ -671,7 +671,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Zastosuj matematyk\u0119 i wyci\u0105gnij z przeciwnik\xF3w dodatkowe punkty
-    - +0.5pkt za ka\u017Cdego omini\u0119tego przeciwnika!"
+    - +3pkt za ka\u017Cdego omini\u0119tego przeciwnika!"
 --- !u!222 &958252542
 CanvasRenderer:
   m_ObjectHideFlags: 0

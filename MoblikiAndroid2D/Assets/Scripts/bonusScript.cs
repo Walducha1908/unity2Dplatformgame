@@ -42,8 +42,8 @@ public class bonusScript : MonoBehaviour
 
         if(secondInfLevelStart.ioadBonus)
         {
-            textBonus.text = textBonus.text + "\nIOAD - 30% mniej straconych ECTS-ów";
-            hitRock.programEnemyValue = 0.7f;
+            textBonus.text = textBonus.text + "\nIOAD - 50% mniej straconych ECTS-ów";
+            hitRock.programEnemyValue = 0.5f;
         }
         else if(secondInfLevelStart.gkimBonus)
         {
@@ -53,7 +53,7 @@ public class bonusScript : MonoBehaviour
 
         if (secondMathsLevelStart.mathsBonus)
         {
-            textBonus.text = textBonus.text + "\nStosowana - +0.5pkt za każdy unik";
+            textBonus.text = textBonus.text + "\nStosowana - +3pkt za każdy unik";
         }
         else if(secondMathsLevelStart.architectureBonus)
         {
@@ -63,7 +63,7 @@ public class bonusScript : MonoBehaviour
 
         if (secondPhysicsLevelStart.physicsBonus)
         {
-            textBonus.text = textBonus.text + "\nTechniczna - Podwójny wyskok!";
+            textBonus.text = textBonus.text + "\nTechniczna - 5x podwójny wyskok!";
         }
         else if(secondPhysicsLevelStart.mechaBonus)
         {

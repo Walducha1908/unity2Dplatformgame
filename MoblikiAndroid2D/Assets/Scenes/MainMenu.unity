@@ -215,7 +215,18 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1024581518}
+        m_MethodName: UpdatePlayerName
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
@@ -3161,7 +3172,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -3346,7 +3357,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Celem gry jest dotarcie jak najdalej na sciezce kariery i unikanie przeszkod
     napotykanych na drodze zycia, takich jak egzaminy na studiach czy nauka do poznych
-    nocnych godzin. Nasza postac - tak jak nasze zycie, samoistnie prze sie do przodu.
+    nocnych godzin. Nasza postac - tak jak nasze zycie, samoistnie prze do przodu.
     Twoim celem jest jedynie unikanie przeszkod.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fb6f3d998f7c0b64e8caee4fcffadcc2, type: 2}
@@ -3417,10 +3428,10 @@ MonoBehaviour:
   m_margin: {x: -138.85497, y: -13.236041, z: -289.89755, w: -41.742245}
   m_textInfo:
     textComponent: {fileID: 1537643303}
-    characterCount: 287
+    characterCount: 283
     spriteCount: 0
-    spaceCount: 44
-    wordCount: 45
+    spaceCount: 43
+    wordCount: 44
     linkCount: 0
     lineCount: 4
     pageCount: 1
@@ -3783,20 +3794,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1911747414
-Transform:
+--- !u!224 &1911747414
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911747413}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -734, y: -380, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 52.830524, y: 52.830524, z: 52.830524}
   m_Children: []
   m_Father: {fileID: 1681516195}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 226, y: 160}
+  m_SizeDelta: {x: 6.5, y: 4.200012}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1911747415
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3881,7 +3897,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -22.521303, y: 413}
+  m_AnchoredPosition: {x: -22.521301, y: 413}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918826065
@@ -3951,7 +3967,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -4094,15 +4110,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &1988377081
-Transform:
+--- !u!224 &1988377081
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988377080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.71918, y: -28.715, z: -245.49}
+  m_LocalPosition: {x: 0, y: 0, z: -245.49}
   m_LocalScale: {x: 1.2255032, y: 1.2255032, z: 1.2255032}
   m_Children:
   - {fileID: 1918826064}
@@ -4114,6 +4130,11 @@ Transform:
   m_Father: {fileID: 167916394}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.71918, y: -28.715}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2033177365
 GameObject:
   m_ObjectHideFlags: 0

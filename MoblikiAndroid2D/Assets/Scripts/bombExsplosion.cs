@@ -8,29 +8,11 @@ public class bombExsplosion : MonoBehaviour
     {
         this.gameObject.SetActive(false);
 
-        GameObject toKill = GameObject.Find("/spikesv3(Clone)");
-        if(toKill != null)
-            Destroy(toKill.gameObject);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        toKill = GameObject.Find("/spikesv3(Clone)");
-        if (toKill != null)
-            Destroy(toKill.gameObject);
-
-
-        toKill = GameObject.Find("/spikesv2(Clone)");
-        if (toKill != null)
-            Destroy(toKill.gameObject);
-
-        toKill = GameObject.Find("/spikesv2(Clone)");
-        if (toKill != null)
-            Destroy(toKill.gameObject);
-
-        toKill = GameObject.Find("/spikes(Clone)");
-        if (toKill != null)
-            Destroy(toKill.gameObject);
-
-        toKill = GameObject.Find("/spikes(Clone)");
-        if (toKill != null)
-            Destroy(toKill.gameObject);
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
     }
 }

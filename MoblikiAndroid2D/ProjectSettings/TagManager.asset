@@ -7,6 +7,7 @@ TagManager:
   - rock
   - ShowOnPause
   - HideOnPause
+  - Enemy
   layers:
   - Default
   - TransparentFX

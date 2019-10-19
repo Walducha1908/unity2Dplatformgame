@@ -74,5 +74,6 @@ public class spawnRocks : MonoBehaviour
         GameObject newSpikes = (GameObject)Instantiate
             (theRock[result], new Vector3(player.transform.position.x + xSpawn, Random.Range(yMin, yMax), 10), Quaternion.identity);
 
+        newSpikes.tag = "Enemy";
     }
 }

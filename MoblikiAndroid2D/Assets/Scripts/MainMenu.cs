@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     {
         //Changes the character limit in the main input field.
         playername.characterLimit = 10;
+        playername.text = BestScoreMenu.playernamestr;
     }
     public void Play()
     {
@@ -19,7 +20,11 @@ public class MainMenu : MonoBehaviour
         BestScoreMenu.playernamestr = playername.text;
         newGameReset.prepareNewGame();
         SceneManager.LoadScene("AskFirstLevel");
+    }
 
+    public void UpdatePlayerName()
+    {
+        BestScoreMenu.playernamestr = playername.text;
     }
 
     public void ReturnToMainMenu()

@@ -458,20 +458,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &631042371
-Transform:
+--- !u!224 &631042371
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631042370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -734, y: -380, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 52.83053, y: 52.83053, z: 52.83053}
   m_Children: []
   m_Father: {fileID: 1958308536}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 226, y: 160}
+  m_SizeDelta: {x: 6.5, y: 4.200012}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &631042372
 SpriteRenderer:
   m_ObjectHideFlags: 0

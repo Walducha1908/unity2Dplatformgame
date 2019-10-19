@@ -15,6 +15,7 @@ public class BestScoreMenu : MonoBehaviour
     private Transform entry;
     private List<Transform> scoreEntriesTransforms;
 
+    public Text bestScore;
     private void Start()
     {
         entries = transform.Find("Entries");
@@ -43,13 +44,6 @@ public class BestScoreMenu : MonoBehaviour
             ScoreEntry scoreEntry = scores.scoreEntries[i];
             CreateScoreEntryTransform(scoreEntry, entries, scoreEntriesTransforms);
         }
-
-        if (isLoadedFromEndScreen)
-        {
-            isLoadedFromEndScreen = false;
-            //SceneManager.LoadScene("MainMenu");
-        }
-
     }
 
     private void CreateScoreEntryTransform(ScoreEntry scoreEntry, Transform entries, List<Transform> scoreEntriesTransforms)
@@ -78,54 +72,34 @@ public class BestScoreMenu : MonoBehaviour
     {
         ScoreEntry scoreEntry = new ScoreEntry { score = score, playerName = playerName };
         Scores scores;
-        if (PlayerPrefs.HasKey("ScoreTable"))
-        {
-            string jsonStr = PlayerPrefs.GetString("ScoreTable");
-            scores = JsonUtility.FromJson<Scores>(jsonStr);
-        }
-        else
-        {
-            scores = new Scores();
-        }
 
-        if (!isLoadedFromMainMenuScene)
+        //jsonCotroller.canGet = true;
+        scores = JsonUtility.FromJson<Scores>(jsonCotroller.jsontxt);
+
+        if (isLoadedFromEndScreen)
         {
             scores.scoreEntries.Add(scoreEntry);
+            string json = JsonUtility.ToJson(scores);
+            jsonCotroller.jsonToSend = json;
+            jsonCotroller.canSend = true;
+            jsonCotroller.jsontxt = jsonCotroller.jsonToSend;
         }
         isLoadedFromMainMenuScene = false;
+        isLoadedFromEndScreen = false;
 
-        string json = JsonUtility.ToJson(scores);
-        PlayerPrefs.SetString("ScoreTable", json);
-        PlayerPrefs.Save();
-
-        //putJSONbin(json);
         return scores;
     }
 
     [System.Serializable]
-    private class Scores
+    public class Scores
     {
         public List<ScoreEntry> scoreEntries = new List<ScoreEntry>();
     }
 
     [System.Serializable]
-    private class ScoreEntry
+    public class ScoreEntry
     {
         public float score;
         public string playerName;
     }
-
-    /*void putJSONbin(string json) 
-    {
-        var httpWebRequest = (HttpWebRequest)WebRequest.Create();
-        Debug.Log("jestem tu");
-        httpWebRequest.ContentType = "application/json";
-        httpWebRequest.
-        httpWebRequest.Method = "PUT";
-
-        using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-        {
-            streamWriter.Write(json);
-        }
-    }*/
 }

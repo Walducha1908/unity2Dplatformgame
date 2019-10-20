@@ -10,7 +10,18 @@ public class endScore : MonoBehaviour
 
     private void Start()
     {
-        score.text = "Twój wynik: " + scoreCounter.points.ToString("0.0") + ".";
+        if (firstLevelStart.infBonus)
+        {
+            FindObjectOfType<AudioManager>().Play("DeathSoundINF");
+            score.text = "Twój wynik: " + scoreCounter.points.ToString("0.0") + ".";
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("DeathSound");
+            score.text = "Twój wynik: " + scoreCounter.points.ToString("0.0") + ".";
+        }
+
+
     }
 
     public void mainMenu()

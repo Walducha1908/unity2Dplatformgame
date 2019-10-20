@@ -26,14 +26,13 @@ public class hitRock : MonoBehaviour
     {
         numberOfHits++;
         Destroy(gameObject);
-
         if (firstLevelStart.infBonus && numberOfHits <= 2)
         {
             return;
         }
 
         scoreCounter.points -= currentPenaltyValue*programEnemyValue;
-        
+        FindObjectOfType<AudioManager>().Play("PlayerHit");
         penaltyLine.text = "-" + (currentPenaltyValue*programEnemyValue).ToString("0.0");
         penaltyFlag = true;
     }

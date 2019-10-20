@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class MainMenu : MonoBehaviour
 {
     public InputField playername;
 
+
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("MenuMusic");
         //Changes the character limit in the main input field.
         playername.characterLimit = 10;
         playername.text = BestScoreMenu.playernamestr;

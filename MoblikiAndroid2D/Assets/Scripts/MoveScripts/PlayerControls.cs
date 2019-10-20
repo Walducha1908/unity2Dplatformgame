@@ -41,6 +41,7 @@ public class PlayerControls : MonoBehaviour
 
         if (Swiping.swipingDown && !hidden)
         {
+            FindObjectOfType<AudioManager>().Play("BeSmall");
             player.transform.localScale /= reduceValue;
             hidden = true;
         }
@@ -51,11 +52,13 @@ public class PlayerControls : MonoBehaviour
                 if (touch.phase == TouchPhase.Ended) {
                     if (player.transform.position.y < -7.6f)
                     {
+                        FindObjectOfType<AudioManager>().Play("Jump");
                         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                         jumpNumber = 1;
                     }
                     else if (secondPhysicsLevelStart.physicsBonus && jumpNumber == 1 && doubleJumpNumber > 0)
                     {
+                        FindObjectOfType<AudioManager>().Play("Jump");
                         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                         jumpNumber = 0;
                         doubleJumpNumber--;
@@ -80,6 +83,7 @@ public class PlayerControls : MonoBehaviour
         }
         else if (Swiping.swipingUp && hidden)
         {
+            FindObjectOfType<AudioManager>().Play("BeBig");
             player.transform.localScale *= reduceValue;
             hidden = false;
             normalPosBlock++;

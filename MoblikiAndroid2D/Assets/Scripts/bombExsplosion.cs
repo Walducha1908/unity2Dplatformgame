@@ -6,6 +6,7 @@ public class bombExsplosion : MonoBehaviour
 {
     public void bum()
     {
+        FindObjectOfType<AudioManager>().Play("Bomb");
         this.gameObject.SetActive(false);
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");

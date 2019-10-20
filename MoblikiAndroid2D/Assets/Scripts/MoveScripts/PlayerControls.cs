@@ -49,7 +49,8 @@ public class PlayerControls : MonoBehaviour
         {
             foreach (Touch touch in Input.touches)
             {
-                if (touch.phase == TouchPhase.Ended) {
+                if (touch.phase == TouchPhase.Ended)
+                {
                     if (player.transform.position.y < -7.6f)
                     {
                         FindObjectOfType<AudioManager>().Play("Jump");

@@ -11,6 +11,9 @@ public class AudioManager : MonoBehaviour
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FirstLevel"))
             FindObjectOfType<AudioManager>().Play("LevelMusic");
 
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
+            FindObjectOfType<AudioManager>().Play("MenuMusic");
+
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("BestScoreMenu"))
             FindObjectOfType<AudioManager>().Play("BestScore");
 

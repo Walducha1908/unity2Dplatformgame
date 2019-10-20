@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<AudioManager>().Play("MenuMusic");
+        //FindObjectOfType<AudioManager>().Play("MenuMusic");
         //Changes the character limit in the main input field.
         playername.characterLimit = 10;
         playername.text = BestScoreMenu.playernamestr;

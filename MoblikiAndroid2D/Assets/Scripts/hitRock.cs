@@ -26,7 +26,7 @@ public class hitRock : MonoBehaviour
     {
         numberOfHits++;
         Destroy(gameObject);
-        if (firstLevelStart.infBonus && numberOfHits <= 2)
+        if (firstLevelStart.infBonus && bonusScript.isPlayerProtected == true)
         {
             return;
         }
@@ -74,8 +74,11 @@ public class hitRock : MonoBehaviour
             penaltyLine.text = "";
             theCountdown = 0.7f;
         }
-
         if (numberOfHits == 2)
+        {
+            bonusScript.isPlayerProtected = false;
+        }
+        if (bonusScript.isPlayerProtected == false)
         {
             shield.SetActive(false);
         }

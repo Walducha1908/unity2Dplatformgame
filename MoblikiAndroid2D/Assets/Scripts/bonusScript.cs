@@ -12,6 +12,7 @@ public class bonusScript : MonoBehaviour
     public GameObject shield;
     public Text thirdLevelAward;
 
+    public static bool isPlayerProtected = false;
     public static string playernamestr;
 
     private float waitingForNextAward = 10;
@@ -32,6 +33,7 @@ public class bonusScript : MonoBehaviour
         else if(firstLevelStart.infBonus)
         {
             textBonus.text = "Informatyka - pierwsze" + " dwa uderzenia bezpłatne";
+            isPlayerProtected = true;
             shield.SetActive(true);
         }
         else if(firstLevelStart.physicsBonus)
@@ -43,11 +45,13 @@ public class bonusScript : MonoBehaviour
         if(secondInfLevelStart.ioadBonus)
         {
             textBonus.text = textBonus.text + "\nIOAD - 50% mniej straconych ECTS-ów";
+            isPlayerProtected = true;
             hitRock.programEnemyValue = 0.5f;
         }
         else if(secondInfLevelStart.gkimBonus)
         {
             textBonus.text = textBonus.text + "\nGKiM - +50% do zmniejszania";
+            isPlayerProtected = true;
             PlayerControls.reduceValue = 2.5f;
         }
 

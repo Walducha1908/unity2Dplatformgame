@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class jsonCotroller : MonoBehaviour
 {
-    public static string jsonURL = "https://api.myjson.com/bins/137f1w";
+    public static string jsonURL = "https://api.myjson.com/bins/elx1k";
     public static string jsontxt;
     public static string jsonToSend;
     public static bool canSend = false;
@@ -29,7 +29,7 @@ public class jsonCotroller : MonoBehaviour
             else
             {
                 jsontxt = webRequest.downloadHandler.text;
-                //Debug.Log(jsontxt);
+                Debug.Log("laduje jsona" + jsontxt);
                 received = true;
             }
         }

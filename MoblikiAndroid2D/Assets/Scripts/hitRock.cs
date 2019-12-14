@@ -19,6 +19,7 @@ public class hitRock : MonoBehaviour
     public static float programEnemyValue = 1;
     public static int numberOfHits = 0;
     public GameObject shield;
+    public Animation anim;
 
     private bool awardCollected = false;
 
@@ -33,6 +34,7 @@ public class hitRock : MonoBehaviour
 
         scoreCounter.points -= currentPenaltyValue*programEnemyValue;
         FindObjectOfType<AudioManager>().Play("PlayerHit");
+        anim.Play("hitanim");
         penaltyLine.text = "-" + (currentPenaltyValue*programEnemyValue).ToString("0.0");
         penaltyFlag = true;
     }

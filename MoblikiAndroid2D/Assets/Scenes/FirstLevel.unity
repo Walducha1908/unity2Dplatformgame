@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 9196718}
   - component: {fileID: 9196717}
   - component: {fileID: 9196722}
+  - component: {fileID: 9196723}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -282,6 +283,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffad6425ec775ba4787dbd210a3f3217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &9196723
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196716}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 05866404dafdeeb4284555a3dd074254, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 05866404dafdeeb4284555a3dd074254, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &83989018
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +620,7 @@ MonoBehaviour:
   awardLine: {fileID: 1591247685}
   player: {fileID: 9196716}
   shield: {fileID: 929645208}
+  anim: {fileID: 9196723}
 --- !u!61 &171909740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -620,7 +638,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 4.09, y: 5.12}
     newSize: {x: 1.49, y: 2.99}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1484,6 +1502,7 @@ MonoBehaviour:
   awardLine: {fileID: 1591247685}
   player: {fileID: 9196716}
   shield: {fileID: 929645208}
+  anim: {fileID: 9196723}
 --- !u!212 &900451111
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1564,7 +1583,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.22, y: 5.12}
+    oldSize: {x: 4.45, y: 5.38}
     newSize: {x: 4.22, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2132,6 +2151,7 @@ MonoBehaviour:
   life2: {fileID: 546043317}
   life3: {fileID: 1658122671}
   bonusText: {fileID: 1382307401}
+  shield: {fileID: 0}
 --- !u!4 &1115390045
 Transform:
   m_ObjectHideFlags: 0
@@ -2589,6 +2609,7 @@ MonoBehaviour:
   awardLine: {fileID: 1591247685}
   player: {fileID: 9196716}
   shield: {fileID: 929645208}
+  anim: {fileID: 9196723}
 --- !u!61 &1389231354
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2606,7 +2627,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 3.98}
+    oldSize: {x: 5.26, y: 4.11}
     newSize: {x: 2.7, y: 2.58}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -1992,8 +1992,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.17895639, g: 1, b: 0, a: 0.38431373}
-    m_HighlightedColor: {r: 0.16725601, g: 0.509434, b: 0.1321645, a: 1}
+    m_NormalColor: {r: 0.038573265, g: 0, b: 1, a: 0.38431373}
+    m_HighlightedColor: {r: 0.042891473, g: 0.0052064694, b: 0.3679245, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -2584,7 +2584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.7123752, g: 0.6650944, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3668,7 +3668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.085000366, g: 0.4433962, b: 0.01464045, a: 1}
+  m_Color: {r: 0.56385714, g: 0.4292453, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3686,7 +3686,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Jazda jazdunia
 --- !u!222 &1382307402
 CanvasRenderer:
   m_ObjectHideFlags: 0

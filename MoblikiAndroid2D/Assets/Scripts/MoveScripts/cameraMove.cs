@@ -29,7 +29,7 @@ public class cameraMove : MonoBehaviour
         mountains.transform.position = new Vector3(moveMountains, mountains.transform.position.y, mountains.transform.position.z);
         background.transform.position = new Vector3(moveBackground, background.transform.position.y, background.transform.position.z);
 
-        if (myCamera.transform.position.x - bg.transform.position.x < 4.6f)
+        //if (myCamera.transform.position.x - bg.transform.position.x < 4.6f)
         {
             myCamera.transform.position = new Vector3(move, myCamera.transform.position.y, myCamera.transform.position.z);
             lastPlayerPosition = player.transform.position.x;

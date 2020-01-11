@@ -8,6 +8,10 @@ TagManager:
   - ShowOnPause
   - HideOnPause
   - Enemy
+  - Mechanics
+  - Architecture
+  - Graphic
+  - TechnicalPhysics
   layers:
   - Default
   - TransparentFX

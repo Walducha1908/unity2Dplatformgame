@@ -8,6 +8,15 @@ public class bonusScript : MonoBehaviour
     public Text textBonus;
     public Text levelText;
     public Text PlayerName;
+
+    public Button physIcon;
+    public Button softIcon;
+    public Button mechIcon;
+    public Button graphIcon;
+    public Button mathIcon;
+    public Button docIcon;
+    public Button workerIcon;
+
     public GameObject bomb;
     public GameObject shield;
     public Text thirdLevelAward;
@@ -21,6 +30,7 @@ public class bonusScript : MonoBehaviour
     private float bonusScienceVal = 10;
     private bool awardTextIsShown = false;
 
+
     void Start()
     {
         PlayerName.text = "Gracz:" + playernamestr;
@@ -28,62 +38,60 @@ public class bonusScript : MonoBehaviour
         if (firstLevelStart.mathsBonus)
         {
             scoreCounter.bonus = 1.2f;
-            textBonus.text = "Matematyka - x1.2 do ECTS";
         }
         else if(firstLevelStart.infBonus)
         {
-            textBonus.text = "Informatyka - pierwsze" + " dwa uderzenia bezpłatne";
             isPlayerProtected = true;
             shield.SetActive(true);
         }
         else if(firstLevelStart.physicsBonus)
         {
-            textBonus.text = "Fizyka - siła skoku + 10%";
             PlayerControls.jumpPower = 7.7f;
         }
 
         if(secondInfLevelStart.ioadBonus)
         {
-            textBonus.text = textBonus.text + "\nIOAD - 50% mniej straconych ECTS-ów";
+            softIcon.gameObject.SetActive(true);
             isPlayerProtected = true;
             hitRock.programEnemyValue = 0.5f;
         }
         else if(secondInfLevelStart.gkimBonus)
         {
-            textBonus.text = textBonus.text + "\nGKiM - +50% do zmniejszania";
+            graphIcon.gameObject.SetActive(true);
             isPlayerProtected = true;
             PlayerControls.reduceValue = 2.5f;
         }
 
         if (secondMathsLevelStart.mathsBonus)
         {
-            textBonus.text = textBonus.text + "\nStosowana - +3pkt za każdy unik";
+            mathIcon.gameObject.SetActive(true);
         }
         else if(secondMathsLevelStart.architectureBonus)
         {
-            textBonus.text = textBonus.text + "\nArchitektura - Wynaleziono bombę!";
             bomb.SetActive(true);
         }
 
         if (secondPhysicsLevelStart.physicsBonus)
         {
-            textBonus.text = textBonus.text + "\nTechniczna - 5x podwójny wyskok!";
+            physIcon.gameObject.SetActive(true);
         }
         else if(secondPhysicsLevelStart.mechaBonus)
         {
-            textBonus.text = textBonus.text + "\nMechanika - 10s spowolnienia przeciwników!";
+            mechIcon.gameObject.SetActive(true);
         }
+
+
 
         if (thirdLevelStart.corpoBonus)
         {
-            textBonus.text = textBonus.text + "\nPraca w firmie - +30pkt co 10s";
+            workerIcon.gameObject.SetActive(true);
         }
         else if(thirdLevelStart.scienceBonus)
         {
-            textBonus.text = textBonus.text + "\nPraca naukowa - +10, 20, 30pkt narastająco co 10s";
+            docIcon.gameObject.SetActive(true);
         }
 
-        if(scoreCounter.level == 1)
+        if (scoreCounter.level == 1)
         {
             levelText.text = "Poziom 1 - matura";
         }

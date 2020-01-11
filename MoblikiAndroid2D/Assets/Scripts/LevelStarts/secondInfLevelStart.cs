@@ -15,7 +15,7 @@ public class secondInfLevelStart : MonoBehaviour
     }
 
     public void gkimClicked()
-    {
+    { 
         gkimBonus = true;
         whateverClicked();
     }
